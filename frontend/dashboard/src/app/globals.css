@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@import '../../../shared/theme/tokens.css';
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-amber-glow);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.serif { font-family: var(--font-serif); }
+.mono  { font-family: var(--font-mono);  }
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--color-line) 0%, color-mix(in oklab, var(--color-line) 50%, var(--color-bg)) 50%, var(--color-line) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 320ms cubic-bezier(0.32, 0.72, 0.24, 1); }
+
+/* Highlight for flagged transcript spans */
+.flagged {
+  background: color-mix(in oklab, var(--color-amber-soft) 14%, transparent);
+  border-bottom: 2px solid var(--color-amber-soft);
+  padding: 0 2px;
+  border-radius: 2px;
+  cursor: help;
+  transition: background 200ms ease;
+}
+.flagged:hover {
+  background: color-mix(in oklab, var(--color-amber-soft) 28%, transparent);
+}
+.flagged.flash {
+  animation: flagged-flash 600ms ease-out;
+}
+@keyframes flagged-flash {
+  0%   { background: var(--color-amber-glow); }
+  100% { background: color-mix(in oklab, var(--color-amber-soft) 14%, transparent); }
+}

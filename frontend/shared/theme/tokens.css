@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+/* Shared Sage theme tokens for both caregiver dashboard and Electron shell.
+   Default behavior follows the user's system preference. Manual overrides
+   happen by setting html[data-theme="light"|"dark"]. */
+
+:root {
+  color-scheme: light;
+
+  --color-bg: #fbf6ee;
+  --color-surface: #ffffff;
+  --color-line: #e8decf;
+  --color-ink: #1f1a14;
+  --color-ink-soft: #6b5f4f;
+  --color-ink-faint: #b6a99a;
+
+  /* Amber stays Tailwind amber-500 in both themes. */
+  --color-amber: #f59e0b;
+  --color-amber-soft: #fbbf24;
+  --color-amber-glow: #fde68a;
+  --color-amber-deep: #d97706;
+
+  --color-aubergine: #4d3d63;
+  --color-clay: #d97353;
+  --color-moss: #86a96a;
+
+  --color-accent-surface: #f6e2b2;
+  --color-accent-surface-strong: #e8cf8c;
+  --color-accent-surface-subtle: #fbf1d7;
+  --color-elevated-surface: rgba(255, 255, 255, 0.76);
+  --color-elevated-surface-strong: rgba(255, 255, 255, 0.92);
+  --color-ambient-halo: rgba(255, 216, 155, 0.22);
+
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-organic: cubic-bezier(0.32, 0.72, 0.24, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --bg: var(--color-bg);
+
+  /* Orb stays amber across themes. */
+  --orb-core: #fde68a;
+  --orb-rim: #f59e0b;
+  --orb-glow: #fde68a;
+  --orb-shadow: rgba(245, 158, 11, 0.2);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #1a1a1a;
+  --color-surface: #0a0a0a;
+  --color-line: #2a2a2a;
+  --color-ink: #f0f0f0;
+  --color-ink-soft: #c8c8c8;
+  --color-ink-faint: #8f8f8f;
+  --color-amber-soft: #3a3a3a;
+  --color-amber-glow: #1a1a1a;
+  --color-accent-surface: #1a1a1a;
+  --color-accent-surface-strong: #141414;
+  --color-accent-surface-subtle: #141414;
+  --color-elevated-surface: rgba(10, 10, 10, 0.88);
+  --color-elevated-surface-strong: rgba(10, 10, 10, 0.96);
+  --color-ambient-halo: rgba(240, 240, 240, 0.05);
+  --bg: var(--color-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --color-bg: #1a1a1a;
+    --color-surface: #0a0a0a;
+    --color-line: #2a2a2a;
+    --color-ink: #f0f0f0;
+    --color-ink-soft: #c8c8c8;
+    --color-ink-faint: #8f8f8f;
+    --color-amber-soft: #3a3a3a;
+    --color-amber-glow: #1a1a1a;
+    --color-accent-surface: #1a1a1a;
+    --color-accent-surface-strong: #141414;
+    --color-accent-surface-subtle: #141414;
+    --color-elevated-surface: rgba(10, 10, 10, 0.88);
+    --color-elevated-surface-strong: rgba(10, 10, 10, 0.96);
+    --color-ambient-halo: rgba(240, 240, 240, 0.05);
+    --bg: var(--color-bg);
+  }
+}
